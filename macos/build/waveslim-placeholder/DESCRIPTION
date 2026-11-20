@@ -1,0 +1,11 @@
+Package: waveslim
+Type: Package
+Title: Placeholder for 'waveslim' in the AstroSharp macOS Runtime
+Version: 0.0.1
+Description: AstroSharp's app.R attaches the 'waveslim' package but never calls
+    anything from it. The real package depends on Fortran code ('multitaper') for
+    which no Apple silicon build is available in the bundled R runtime, so this
+    empty package stands in for it and lets library(waveslim) succeed. It
+    contains no functions.
+License: MIT + file LICENSE
+Encoding: UTF-8

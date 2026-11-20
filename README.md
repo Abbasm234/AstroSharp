@@ -12,3 +12,7 @@
 4) The image cannot have an alpha channel 
 5) You probably shouldn't upload a sharpened image. Just upload a calibrated, stretched image 
 With more development, I hope to make the app accept color images, large files etc. Help make astronomy accessible!
+
+## macOS
+
+A build for Apple silicon Macs lives in the [macos](macos) folder: the Mac launcher, the scripts that build `AstroSharp.app`, and notes on how it differs from the Windows build. See [macos/README.md](macos/README.md).

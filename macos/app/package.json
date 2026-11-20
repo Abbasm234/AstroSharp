@@ -1,0 +1,14 @@
+{
+  "name": "astrosharp",
+  "productName": "AstroSharp",
+  "version": "1.0.0",
+  "description": "AstroSharp, the astronomical sharpening tool by Deep Sky Detail, packaged for macOS",
+  "main": "main.js",
+  "homepage": "https://github.com/deepskydetail/AstroSharp",
+  "author": "Deep Sky Detail",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  }
+}

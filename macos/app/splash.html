@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<title>AstroSharp</title>
+<style>
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: #1c1e22;
+    color: #e6e6e6;
+    font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-app-region: drag;
+    user-select: none;
+    cursor: default;
+  }
+  img { width: 84px; height: 84px; margin-bottom: 14px; }
+  h1 { font-size: 24px; font-weight: 600; margin: 0; letter-spacing: 0.2px; }
+  .by { color: #8d949e; font-size: 12.5px; margin: 3px 0 26px; }
+  #status { font-size: 14px; min-height: 20px; text-align: center; padding: 0 28px; }
+  #detail { color: #8d949e; font-size: 12px; min-height: 17px; margin-top: 5px; text-align: center; padding: 0 28px; }
+  .track { width: 300px; height: 4px; border-radius: 2px; background: #33373e; margin-top: 16px; overflow: hidden; }
+  #bar { height: 100%; width: 30%; border-radius: 2px; background: #2a9fd6; }
+  .track.indeterminate #bar { animation: slide 1.3s ease-in-out infinite; }
+  .track:not(.indeterminate) #bar { transition: width 0.3s ease; }
+  @keyframes slide { 0% { margin-left: -30%; } 100% { margin-left: 100%; } }
+  @media (prefers-reduced-motion: reduce) { .track.indeterminate #bar { animation: none; width: 100%; opacity: 0.5; } }
+</style>
+</head>
+<body>
+  <img src="icon.png" alt="">
+  <h1>AstroSharp</h1>
+  <div class="by">Deep Sky DeTools by Deep Sky Detail</div>
+  <div id="status">Starting…</div>
+  <div id="detail"></div>
+  <div class="track indeterminate" id="track"><div id="bar"></div></div>
+<script>
+  window.setStatus = function (status, detail, fraction) {
+    document.getElementById('status').textContent = status || ''
+    document.getElementById('detail').textContent = detail || ''
+    var track = document.getElementById('track')
+    var bar = document.getElementById('bar')
+    if (typeof fraction === 'number') {
+      track.classList.remove('indeterminate')
+      bar.style.width = Math.max(2, Math.round(fraction * 100)) + '%'
+    } else {
+      track.classList.add('indeterminate')
+      bar.style.width = ''
+    }
+  }
+</script>
+</body>
+</html>
